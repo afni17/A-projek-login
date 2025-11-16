@@ -1,0 +1,23 @@
+<?php
+session_start();
+
+// contoh akun
+$valid_username = "admin";
+$valid_password = "12345";
+
+// ambil dari form login
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// cek login
+if ($username === $valid_username && $password === $valid_password) {
+    $_SESSION['username'] = $username;
+    header("Location: dashboard.php");
+    exit();
+} else {
+    echo "<script>
+            alert('Login gagal! Username atau password salah');
+            window.location='index.php';
+          </script>";
+}
+?>
